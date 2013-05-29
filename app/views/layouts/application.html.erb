@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traceread</title>
+<link rel="stylesheet" href="http://railsgirls.com/assets/bootstrap.css">
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+ 
+<!-- Navigation -->
+<div class="navbar navbar-fixed-static">
+	<div class="navbar-inner">
+		<div class="container">
+
+ 
+
+
+ 
+
+ <a class="brand" href="./index.html">TraceRead</a> 
+
+      <div class="nav-collapse collapse">
+            <ul class="nav">
+  <li class="active"><a href="/ideas">Ideas</a></li>
+</ul>
+
+             <p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+          </div>
+ 
+     
+      <div class="nav-collapse collapse">
+
+      </div>
+		</div>
+	</div>
+</div>
+ 
+<!-- Body -->
+<div id="wrap">
+<div class="container">
+
+
+
+       <% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
+
+
+  <%= yield %>
+</div>
+</div>
+
+    <!-- Footer -->
+      <div id="push"></div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <p>Built by Tracy, designed by no one.</p>
+        
+      </div>
+  </div>
+   
+<!-- Java script at the end of the document so that the page loads faster -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
