@@ -21,11 +21,12 @@
 
  
 
- <a class="brand" href="./index.html">TraceRead</a> 
+<a class="brand" <%= link_to "TraceRead", books_path %></a> 
+ 
 
       <div class="nav-collapse collapse">
             <ul class="nav">
-  <li class="active"><a href="/ideas">Ideas</a></li>
+  <li class="active"><a <%= link_to "Add New Book", new_book_path %></a></li>
 </ul>
 
              <p class="navbar-text pull-right">
